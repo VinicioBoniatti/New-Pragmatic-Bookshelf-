@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<h2> Your Cart </h2>
+<table>
+  <% @cart.line_itens.each do |iten|%>
+  <tr>
+    <td><%= iten.quantity %> &times;</td>
+    <td><%= iten.product.title %></td>
+    <td class="iten_price"><%= number_to_currency(iten.total_price) %></td>
+    <td><%= button_to 'Empty item', @line_iten, method: :delete, data: { confirm: 'Are you sure?'}%></td>
+  <tr>
+<% end %>
+
+  <tr class = "total_line">
+    <td colspan = "2">Total</td>
+    <td class= "total_cell"><%= number_to_currency(@cart.total_price) %></td>
+  </tr>
+
+</table>
+
+<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?'}%>
+

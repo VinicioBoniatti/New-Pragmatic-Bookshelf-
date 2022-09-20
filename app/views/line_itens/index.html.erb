@@ -1,0 +1,16 @@
+
+
+<p style="color: green"><%= notice %></p>
+
+<h1>Line itens</h1>
+
+<div id="line_itens">
+  <% @line_itens.each do |line_iten| %>
+    <%= render line_iten %>
+    <p>
+      <%= link_to "Show this line iten", line_iten %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New line iten", new_line_iten_path %>
