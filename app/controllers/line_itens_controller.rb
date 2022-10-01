@@ -1,4 +1,6 @@
+
 class LineItensController < ApplicationController
+  skip_before_action :authorize, only: [:create, :destroy]
   include CurrentCart
   before_action :set_cart, only: [:create]
   before_action :set_line_iten, only: [ :show, :edit, :update, :destroy ]
@@ -28,7 +30,8 @@ class LineItensController < ApplicationController
 
     respond_to do |format|
       if @line_iten.save
-        format.html { redirect_to @line_iten.cart, notice: "Line iten was successfully created." }
+        format.html { redirect_to store_index_url}
+        format.js { @current_iten = @line_iten}
         format.json { render :show, status: :created, location: @line_iten }
       else
         format.html { render :new }
@@ -52,10 +55,10 @@ class LineItensController < ApplicationController
 
   # DELETE /line_itens/1 or /line_itens/1.json
   def destroy
-    @line_iten.destroy if @cart.id == session[:cart_id]
-      session[:cart_id] = nil 
-      respond_to do |format|
-      format.html { redirect_to cart_url, notice: "Line iten was successfully destroyed." }
+   
+    @line_iten.destroy
+    respond_to do |format|
+      format.html { redirect_to store_index_url, notice: "Line iten was successfully destroyed." }
       format.json { head :no_content }
     end
   end
@@ -63,6 +66,7 @@ class LineItensController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_line_iten
+      
       @line_iten = LineIten.find(params[:id])
     end
 

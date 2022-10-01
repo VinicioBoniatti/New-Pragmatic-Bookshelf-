@@ -1,0 +1,71 @@
+pt: 
+
+  thanks: "Obrigado pelo seu pedido"
+
+  activerecord:
+    errors:
+      messages: 
+        inclusion: "não foi escolhido"
+        blank: " não pode ficar em branco"
+    models:
+      order: "pedido"
+    attributes: 
+      order:
+        address: "Endereço"
+        name: "Nome"
+        email: "E-mail"
+        pay_type: "Forma de pagamento"
+
+  errors:
+    template:
+      body: "Tem problemas com os seguintes campos"
+      header: 
+        one: " 1 error está impedindo que este %{model} seja salvo"
+        other: "%{count} erros estão impedido que este %{model} seja salvo "
+
+  store:
+    index:
+      title_html: "Seu catálogo pragmático"
+      add_html: "Adicionar no carrinho"
+  
+  layouts: 
+    application:
+      title: "A estante pragmática"
+      home: "Casa"
+      questions: "Questões"
+      news: "Novidades"
+      contact: "Contato"
+  
+
+  carts:
+    cart:
+      title: "Seu carrinho"
+      empty: "Deletar carrinho"
+      checkout: "Confirmar compra"
+
+  line_itens:
+    line_iten:
+      add_html: "Deletar item"
+
+  orders:
+    new:
+      legend: "Insira seus dados, por favor!"
+    form:
+      name: "Nome"
+      address_html: "Endereço"
+      email: "E-mail"
+      pay_type: "Tipo de pagamento"
+      pay_prompt_html: "Selecione o método de pagamento"
+      submit: "Executar pedido"
+
+  
+
+  # number:
+  #   currency:
+  #     format:
+  #     unit: "$US"
+  #     precision: 2
+  #     separator: "."
+  #     delimiter: ","
+  #     format: "%u&nbsp,%u"
+

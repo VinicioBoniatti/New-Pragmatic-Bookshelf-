@@ -1,12 +1,13 @@
-<div id="<%= dom_id line_iten %>">
-  <p>
-    <strong>Product:</strong>
-    <%= line_iten.product_id %>
-  </p>
 
-  <p>
-    <strong>Cart:</strong>
-    <%= line_iten.cart_id %>
-  </p>
+<% if line_iten == @current_iten %>
+<tr id = "current_iten">
+<% else %>
+<tr>
+<% end %>
+    <td><%= line_iten.quantity %> &times;</td>
+    <td><%= line_iten.product.title %></td>
+    <td class="iten_price"><%= number_to_currency(line_iten.total_price) %></td>
+    <td><%= button_to t('.add_html'),line_iten, method: :delete, data: { confirm: 'Are you sure?'} %></td>
+  <tr>
 
-</div>
+

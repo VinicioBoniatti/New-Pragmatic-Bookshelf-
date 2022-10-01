@@ -2,8 +2,8 @@
 // Thew will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/ 
 
-.carts {
-    .item_price, .total_line {
+.carts, #side #cart {
+    .iten_price, .total_line {
         text-align: right;
     }
 
